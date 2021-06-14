@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Upload</title>
+        <meta charset="UTF-8">
+
+        <!-- Import Google Icon Font -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="assets/materialize.min.css">
+
+        <!-- Let browser know website is optimized for mobile -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
+        <script src="assets/script.min.js"></script>
+        <link rel="stylesheet" href="assets/styles.min.css" />
+    </head>
+
+    <body>
+
+
+        <!-- Login -->   
+
+        <div id="login">
+            <form>
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">Inicia Sesión</span>
+                        <div class="input-field">
+                            <i class="material-icons prefix">account_box</i>
+                            <input id="input-login-user" type="text" required>
+                            <label for="input-login-user">Nombre de usuario</label>
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix">lock</i>
+                            <input id="input-login-pass" type="text" required>
+                            <label for="input-login-pass">Contraseña</label>
+                        </div>
+                    </div>
+                    <div class="card-action right-align">
+                        <button class="btn waves-effect waves-light" type="submit" id="btn-login-submit">Iniciar sesión</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <!-- Content -->
+
+        <div id="content" class="hide">
+            <header>
+                <div id="side" class="sidenav sidenav-fixed">
+                    <ul>
+                        <li class="logo"></li>
+                        <li><div class="divider"></div></li>
+                        <li><a class="waves-effect modal-trigger" href="#mod_form_pickup" id="lnk_pickup">Reporte Pickup</a></li>
+                        <li><div class="divider"></div></li>
+                        <li><a class="waves-effect modal-trigger" href="#mod_form_inar" id="lnk_inar">Reporte INAR</a></li>
+                    </ul>
+                </div>
+            </header>
+            <main>
+                <div id="main">
+
+
+                    <!-- Modal Structure -->
+
+                    <div id="mod_form_pickup" class="modal modal-fixed-footer">
+                        <form enctype="multipart/form-data">
+                            <div class="preloader-wrapper big active hide">
+                                <div class="spinner-layer">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div><div class="gap-patch">
+                                        <div class="circle"></div>
+                                    </div><div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-content">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <h4>Reporte Pickup</h4>
+                                    </div>
+                                    <div class="file-field input-field col s2">
+                                        <div class="btn">
+                                            <span>File</span>
+                                            <input type="file">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn waves-effect waves-light modal-close" type="button"><i class="material-icons left">close</i>Cerrar</button>
+                                <button class="btn waves-effect waves-light" type="submit"><i class="material-icons left">save</i>Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <!-- Modal Structure -->
+
+                    <div id="mod_form_inar" class="modal modal-fixed-footer">
+                        <form enctype="multipart/form-data">
+                            <div class="preloader-wrapper big active hide">
+                                <div class="spinner-layer">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div><div class="gap-patch">
+                                        <div class="circle"></div>
+                                    </div><div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-content">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <h4>Reporte INAR</h4>
+                                    </div>
+                                    <div class="input-field col s3">
+                                        <input id="inar" type="text" class="validate">
+                                        <label for="inar">Escribe el nombre del archivo INAR</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn waves-effect waves-light modal-close" type="button"><i class="material-icons left">close</i>Cerrar</button>
+                                <button class="btn waves-effect waves-light" type="submit"><i class="material-icons left">save</i>Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+
+
+        <!-- Compiled and minified JavaScript -->
+        <script src="assets/materialize.min.js"></script>
+
+    </body>
+</html>
