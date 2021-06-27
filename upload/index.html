@@ -58,7 +58,9 @@
                         <li><div class="divider"></div></li>
                         <li><a class="waves-effect modal-trigger" href="#mod_form_pickup" id="lnk_pickup">Reporte Pickup</a></li>
                         <li><div class="divider"></div></li>
-                        <li><a class="waves-effect modal-trigger" href="#mod_form_inar" id="lnk_inar">Reporte INAR</a></li>
+                        <li><a class="waves-effect modal-trigger" href="#mod_form_inar" id="lnk_inar">INAR</a></li>
+                        <li><div class="divider"></div></li>
+                        <li><a class="waves-effect modal-trigger" href="#mod_form_inarreno" id="lnk_inarreno">INAR Renovación</a></li>
                     </ul>
                 </div>
             </header>
@@ -128,6 +130,40 @@
                                     <div class="input-field col s3">
                                         <input id="inar" type="text" class="validate">
                                         <label for="inar">Escribe el nombre del archivo INAR</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn waves-effect waves-light modal-close" type="button"><i class="material-icons left">close</i>Cerrar</button>
+                                <button class="btn waves-effect waves-light" type="submit"><i class="material-icons left">save</i>Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <!-- Modal Structure -->
+
+                    <div id="mod_form_inarreno" class="modal modal-fixed-footer">
+                        <form enctype="multipart/form-data">
+                            <div class="preloader-wrapper big active hide">
+                                <div class="spinner-layer">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div><div class="gap-patch">
+                                        <div class="circle"></div>
+                                    </div><div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-content">
+                                <div class="row">
+                                    <div class="col s12">
+                                        <h4>INAR Renovación</h4>
+                                    </div>
+                                    <div class="input-field col s3">
+                                        <input id="inarreno" type="text" class="validate">
+                                        <label for="inarreno">Escribe el nombre del archivo INAR</label>
                                     </div>
                                 </div>
                             </div>

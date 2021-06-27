@@ -29,7 +29,7 @@ var app = {
     set_url_base: function () {
         var _this = this;
         _this.urlBase = window.location.hostname === "luisgarciaheredia.com"
-                ? "http://luisgarciaheredia.com/entel3/entel/upload" : "http://localhost/upload/upload";
+                ? "https://luisgarciaheredia.com/entel3/entel/upload" : "http://localhost/upload/upload";
     },
 
     set_dom: function () {
@@ -73,6 +73,15 @@ var app = {
         _this.dom.inar_div_progress = document.querySelectorAll("#mod_form_inar .preloader-wrapper")[0];
         _this.dom.inar_div_modal_content = document.querySelectorAll("#mod_form_inar .modal-content")[0];
 
+
+        // inarreno form
+
+        _this.dom.inarreno_filename = document.querySelectorAll("#mod_form_inarreno input")[0];
+        _this.dom.inarreno_form = document.querySelectorAll("#mod_form_inarreno form")[0];
+        _this.dom.inarreno_button_guardar = document.querySelectorAll("#mod_form_inarreno button[type=submit]")[0];
+        _this.dom.inarreno_div_progress = document.querySelectorAll("#mod_form_inarreno .preloader-wrapper")[0];
+        _this.dom.inarreno_div_modal_content = document.querySelectorAll("#mod_form_inarreno .modal-content")[0];
+
     },
 
     set_listeners: function () {
@@ -101,20 +110,25 @@ var app = {
 
         _this.dom.inar_form.addEventListener("submit", _this.submit_inar_form.bind(_this));
 
+
+        // inarreno form
+
+        _this.dom.inarreno_form.addEventListener("submit", _this.submit_inarreno_form.bind(_this));
+
     },
 
     show_preloader: function () {
         var _this = this;
-        _this.dom.inar_div_progress.classList.remove("hide");
-        _this.dom.inar_div_modal_content.classList.add("hide");
-        _this.dom.inar_button_guardar.classList.add("disabled");
+        _this.div_progress.classList.remove("hide");
+        _this.div_modal_content.classList.add("hide");
+        _this.button_guardar.classList.add("disabled");
     },
 
     hide_preloader: function () {
         var _this = this;
-        _this.dom.inar_div_progress.classList.add("hide");
-        _this.dom.inar_div_modal_content.classList.remove("hide");
-        _this.dom.inar_button_guardar.classList.remove("disabled");
+        _this.div_progress.classList.add("hide");
+        _this.div_modal_content.classList.remove("hide");
+        _this.button_guardar.classList.remove("disabled");
     },
 
     click_link_menu: function (event) {
@@ -136,12 +150,13 @@ var app = {
 
             _this.click_inar_menu();
 
+        } else if (_this.menu_item === "lnk_inarreno") {
 
-            // mes actual
 
-            var mes = (new Date()).getMonth();
-            //_this.dom.select_mes.value = mes;
-            //_this.dom.select_mes.dispatchEvent(new Event('change'));
+            // inarreno
+
+            _this.click_inarreno_menu();
+
         }
     },
 
@@ -154,6 +169,16 @@ var app = {
 
     click_inar_menu: function () {
         var _this = this;
+        _this.div_progress = _this.dom.inar_div_progress;
+        _this.div_modal_content = _this.dom.inar_div_modal_content;
+        _this.button_guardar = _this.dom.inar_button_guardar;
+    },
+
+    click_inarreno_menu: function () {
+        var _this = this;
+        _this.div_progress = _this.dom.inarreno_div_progress;
+        _this.div_modal_content = _this.dom.inarreno_div_modal_content;
+        _this.button_guardar = _this.dom.inarreno_button_guardar;
     },
 
     submit_inar_form: function (event) {
@@ -167,7 +192,22 @@ var app = {
             _this.hide_preloader();
             M.toast({html: response.message, classes: 'rounded'});
             console.log(response);
+        }, function (error) {
+            console.log(error);
+        });
+    },
 
+    submit_inarreno_form: function (event) {
+        var _this = this;
+        event.stopPropagation();
+        event.preventDefault();
+
+        _this.show_preloader();
+        var url = _this.urlBase + "/api/inarreno/update/";
+        _this.sendRequest("filename=" + _this.dom.inarreno_filename.value, "POST", url).then(function (response) {
+            _this.hide_preloader();
+            M.toast({html: response.message, classes: 'rounded'});
+            console.log(response);
         }, function (error) {
             console.log(error);
         });
